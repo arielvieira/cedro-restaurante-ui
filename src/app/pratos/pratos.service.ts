@@ -20,7 +20,8 @@ export class PratosService {
   }
 
   createPrato(prato: Prato) {
-    return this.http.post('/api/pratos', prato);
+    const pratoDto = new PratoDTO(prato);
+    return this.http.post('/api/pratos', pratoDto);
   }
 
   updatePrato(prato: Prato) {
