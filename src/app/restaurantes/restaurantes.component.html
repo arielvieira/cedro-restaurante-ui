@@ -1,6 +1,6 @@
 <form (ngSubmit)="searchRestaurante()">
   <label for="nome">Nome:</label>
-  <input type="text" name="nome" [(ngModel)]="nome">
+  <input type="text" name="nome" id="nome" [(ngModel)]="nome">
   <input type="submit" value="Pesquisar">
   <button>
     <a routerLink="/restaurantes/create">Cadastrar novo Restaurante</a>

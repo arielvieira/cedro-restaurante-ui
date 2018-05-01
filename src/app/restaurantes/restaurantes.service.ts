@@ -6,9 +6,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class RestaurantesService {
 
-  constructor(private http: Http) {
-    this.http = http;
-  }
+  constructor(private http: Http) { }
 
   fetchRestaurante(id) {
     return this.http.get('/api/restaurantes/' + id).map((response: Response) => response.json());

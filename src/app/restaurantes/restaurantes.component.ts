@@ -9,25 +9,29 @@ import { RestaurantesService } from './restaurantes.service';
 })
 export class RestaurantesComponent implements OnInit {
   nome = '';
-  restaurantes;
+  restaurantes = [];
 
-  constructor(private restaurantesService: RestaurantesService) {
-    this.restaurantesService = restaurantesService;
-  }
+  constructor(private restaurantesService: RestaurantesService) { }
 
   ngOnInit() {
     this.loadRestaurantes();
   }
 
   loadRestaurantes() {
-    this.restaurantesService.fetchRestaurantes().subscribe(data => this.restaurantes = data);
+    this.restaurantesService
+      .fetchRestaurantes()
+      .subscribe(data => this.restaurantes = data);
   }
 
   searchRestaurante() {
-    this.restaurantesService.searchRestaurante(this.nome).subscribe(data => this.restaurantes = data);
+    this.restaurantesService
+      .searchRestaurante(this.nome)
+      .subscribe(data => this.restaurantes = data);
   }
 
   removeRestaurante(id) {
-    this.restaurantesService.deleteRestaurante(id).subscribe(() => this.searchRestaurante());
+    this.restaurantesService
+      .deleteRestaurante(id)
+      .subscribe(() => this.loadRestaurantes());
   }
 }
