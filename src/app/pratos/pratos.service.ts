@@ -3,12 +3,15 @@ import { Http, Response } from '@angular/http';
 
 import 'rxjs/add/operator/map';
 
+import { Prato } from './prato.model';
+import { PratoDTO } from './prato.dto';
+
 @Injectable()
 export class PratosService {
 
   constructor(private http: Http) { }
 
-  fetchPrato(id) {
+  fetchPrato(id: number) {
     return this.http.get('/api/pratos/' + id).map((response: Response) => response.json());
   }
 
@@ -16,15 +19,16 @@ export class PratosService {
     return this.http.get('/api/pratos').map((response: Response) => response.json());
   }
 
-  createPrato(prato) {
+  createPrato(prato: Prato) {
     return this.http.post('/api/pratos', prato);
   }
 
-  updatePrato(prato) {
-    return this.http.put('/api/pratos/' + prato.id, prato);
+  updatePrato(prato: Prato) {
+    const pratoDto = new PratoDTO(prato);
+    return this.http.put('/api/pratos/' + pratoDto.id, pratoDto);
   }
 
-  deletePrato(id) {
+  deletePrato(id: number) {
     return this.http.delete('/api/pratos/' + id);
   }
 }
