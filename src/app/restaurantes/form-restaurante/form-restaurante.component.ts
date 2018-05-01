@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { RestaurantesService } from '../restaurantes.service';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import 'rxjs/add/operator/switchMap';
-import { NgForm } from '@angular/forms';
+
+import { RestaurantesService } from '../restaurantes.service';
+
+import { Restaurante } from '../restaurante.model';
 
 @Component({
   selector: 'app-form-restaurante',
@@ -12,7 +15,7 @@ import { NgForm } from '@angular/forms';
 })
 export class FormRestauranteComponent implements OnInit {
   pageTitle: string;
-  restaurante = { id: null };
+  restaurante: Restaurante = new Restaurante();
 
   constructor(
     private restaurantesService: RestaurantesService,

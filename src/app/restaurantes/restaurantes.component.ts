@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { RestaurantesService } from './restaurantes.service';
 
+import { Restaurante } from './restaurante.model';
+
 @Component({
   selector: 'app-restaurantes',
   templateUrl: './restaurantes.component.html',
@@ -9,7 +11,7 @@ import { RestaurantesService } from './restaurantes.service';
 })
 export class RestaurantesComponent implements OnInit {
   nome = '';
-  restaurantes = [];
+  restaurantes: Restaurante[];
 
   constructor(private restaurantesService: RestaurantesService) { }
 

@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 
 import { PratosService } from './pratos.service';
 
+import { Prato } from './prato.model';
+
 @Component({
   selector: 'app-pratos',
   templateUrl: './pratos.component.html',
   styleUrls: ['./pratos.component.css']
 })
 export class PratosComponent implements OnInit {
-  pratos = [];
+  pratos: Prato[];
 
   constructor(private pratosService: PratosService) { }
 
