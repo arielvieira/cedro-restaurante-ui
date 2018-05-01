@@ -1,3 +1,24 @@
-<p>
-  pratos!
-</p>
+<button>
+  <a routerLink="/pratos/create">Cadastrar novo Prato</a>
+</button>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th>Restaurantes</th>
+    <th>Prato</th>
+    <th>Preço</th>
+  </tr>
+  <tr *ngFor="let prato of pratos">
+    <td>
+      <a (click)="removePrato(prato.id)">Deletar</a>
+    </td>
+    <td>
+      <a [routerLink]="['/pratos/edit', prato.id]">Editar</a>
+    </td>
+    <td>{{prato.restaurante.nome}}</td>
+    <td>{{prato.nome}}</td>
+    <td>{{prato.preco}}</td>
+  </tr>
+</table>
