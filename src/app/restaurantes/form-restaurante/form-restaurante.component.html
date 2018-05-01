@@ -1,0 +1,12 @@
+<h2>{{pageTitle}}</h2>
+
+<p>
+  Nome do restaurante:
+</p>
+<form (ngSubmit)="saveData(form)" #form="ngForm">
+  <input type="text" name="nome" [(ngModel)]="restaurante.nome" required>
+  <button type="button">
+    <a (click)="navigateBack()">Cancelar</a>
+  </button>
+  <input type="submit" value="Salvar">
+</form>

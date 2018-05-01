@@ -1,3 +1,25 @@
-<p>
-  restaurantes!
-</p>
+<form (ngSubmit)="searchRestaurante()">
+  <label for="nome">Nome:</label>
+  <input type="text" name="nome" [(ngModel)]="nome">
+  <input type="submit" value="Pesquisar">
+  <button>
+    <a routerLink="/restaurantes/create">Cadastrar novo Restaurante</a>
+  </button>
+</form>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th>Restaurantes</th>
+  </tr>
+  <tr *ngFor="let restaurante of restaurantes">
+    <td>
+      <a (click)="removeRestaurante(restaurante.id)">Deletar</a>
+    </td>
+    <td>
+      <a [routerLink]="['/restaurantes/edit', restaurante.id]">Editar</a>
+    </td>
+    <td>{{restaurante.nome}}</td>
+  </tr>
+</table>
