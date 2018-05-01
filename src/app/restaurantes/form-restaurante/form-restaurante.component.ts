@@ -14,19 +14,17 @@ export class FormRestauranteComponent implements OnInit {
   pageTitle: string;
   restaurante = { id: null };
 
-  constructor(private restaurantesService: RestaurantesService, private activatedRoute: ActivatedRoute, private router: Router) {
-    this.restaurantesService = restaurantesService;
-    this.router = router;
-    this.activatedRoute = activatedRoute;
-  }
+  constructor(
+    private restaurantesService: RestaurantesService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.pageTitle = id ? 'Editar Restaurante' : 'Cadastro de Restaurante';
     if (id) {
       this.fetchData(id);
-      this.pageTitle = 'Editar Restaurante';
-    } else {
-      this.pageTitle = 'Cadastro de Restaurante';
     }
   }
 
@@ -35,29 +33,26 @@ export class FormRestauranteComponent implements OnInit {
       (data) => {
         this.restaurante = data;
       },
-      (err) => this.navigateBack()
+      (err) => this.navigateBackToRestaurante()
     );
-  }
-
-  navigateBack() {
-    this.router.navigate(['/restaurantes']);
   }
 
   saveData(form: NgForm) {
     if (form.invalid) {
       return console.log('invalid');
     }
-    const restaurante = { id: null, nome: form.value.nome };
-
     if (this.restaurante.id) {
-      restaurante.id = this.restaurante.id;
       return this.restaurantesService
-        .updateRestaurante(restaurante)
-        .subscribe(() => this.navigateBack());
+        .updateRestaurante(this.restaurante)
+        .subscribe(() => this.navigateBackToRestaurante());
     }
 
     this.restaurantesService
-      .createRestaurante(restaurante)
-      .subscribe(() => this.navigateBack());
+      .createRestaurante(this.restaurante)
+      .subscribe(() => this.navigateBackToRestaurante());
+  }
+
+  navigateBackToRestaurante() {
+    this.router.navigate(['/restaurantes']);
   }
 }
