@@ -13,6 +13,7 @@ import { FormRestauranteComponent } from './restaurantes/form-restaurante/form-r
 import { PratosComponent } from './pratos/pratos.component';
 
 import { RestaurantesService } from './restaurantes/restaurantes.service';
+import { PratosService } from './pratos/pratos.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { RestaurantesService } from './restaurantes/restaurantes.service';
     HttpModule,
     FormsModule
   ],
-  providers: [RestaurantesService],
+  providers: [RestaurantesService, PratosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

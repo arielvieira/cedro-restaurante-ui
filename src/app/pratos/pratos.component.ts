@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { PratosService } from './pratos.service';
+
 @Component({
   selector: 'app-pratos',
   templateUrl: './pratos.component.html',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PratosComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pratosService: PratosService) { }
 
   ngOnInit() {
   }
