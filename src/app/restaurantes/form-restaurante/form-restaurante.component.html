@@ -1,10 +1,20 @@
-<h2>{{pageTitle}}</h2>
+<div class="content">
+  <h2 class="title">{{pageTitle}}</h2>
 
-<form (ngSubmit)="saveData(form)" #form="ngForm">
-  <label for="nome">Nome do restaurante:</label>
-  <input type="text" name="nome" id="nome" [(ngModel)]="restaurante.nome" required>
-  <button type="button">
-    <a (click)="navigateBackToRestaurante()">Cancelar</a>
-  </button>
-  <input type="submit" value="Salvar">
-</form>
+  <form (ngSubmit)="saveData(form)" #form="ngForm" class="form">
+
+    <mat-form-field class="form-fields">
+      <input matInput placeholder="Nome do restaurante" type="text" name="nome" id="nome" [(ngModel)]="restaurante.nome" required>
+    </mat-form-field>
+
+    <div>
+      <button type="button" mat-raised-button color="warn" (click)="navigateBackToRestaurante()">
+        <mat-icon>undo</mat-icon> Cancelar
+      </button>
+
+      <button mat-raised-button color="primary">
+        <mat-icon>save</mat-icon> Salvar
+      </button>
+    </div>
+  </form>
+</div>
