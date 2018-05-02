@@ -12,6 +12,7 @@ import { Restaurante } from './restaurante.model';
 export class RestaurantesComponent implements OnInit {
   nome = '';
   restaurantes: Restaurante[];
+  columnsToDisplay = ['edit', 'delete', 'restaurante'];
 
   constructor(private restaurantesService: RestaurantesService) { }
 
