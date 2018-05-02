@@ -8,13 +8,13 @@ import { FormRestauranteComponent } from './restaurantes/form-restaurante/form-r
 import { FormPratoComponent } from './pratos/form-prato/form-prato.component';
 
 const ROUTES: Routes = [
-    { path: 'restaurantes', component: RestaurantesComponent },
+    { path: 'restaurantes', component: RestaurantesComponent, pathMatch: 'full'},
     { path: 'restaurantes/create', component: FormRestauranteComponent },
     { path: 'restaurantes/edit/:id', component: FormRestauranteComponent },
-    { path: 'pratos', component: PratosComponent },
+    { path: 'pratos', component: PratosComponent, pathMatch: 'full' },
     { path: 'pratos/create', component: FormPratoComponent },
     { path: 'pratos/edit/:id', component: FormPratoComponent },
-    { path: '', component: HomeComponent },
+    { path: '', component: HomeComponent, pathMatch: 'full'},
     { path: '**', redirectTo: '/' }
 ];
 

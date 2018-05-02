@@ -1,5 +1,13 @@
-<ul>
-  <li routerLink="/" routerLinkActive="active">Home</li>
-  <li routerLink="/restaurantes" routerLinkActive="active">Restaurantes</li>
-  <li routerLink="/pratos" routerLinkActive="active">Pratos</li>
-</ul>
+<mat-toolbar>
+  <ul class="container">
+    <li routerLink="/" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">
+      <mat-icon class="icon-home">home</mat-icon>Home
+    </li>
+    <li routerLink="/restaurantes" routerLinkActive="active">
+      <mat-icon class="icon-home">restaurant</mat-icon>Restaurantes
+    </li>
+    <li routerLink="/pratos" routerLinkActive="active">
+      <mat-icon class="icon-home">restaurant_menu</mat-icon>Pratos
+    </li>
+  </ul>
+</mat-toolbar>

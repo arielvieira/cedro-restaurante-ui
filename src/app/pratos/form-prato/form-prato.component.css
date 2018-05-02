@@ -8,6 +8,10 @@
     width: 100%;
 }
 
-.pratos{
+.content{
     padding: 10px 0 30px 20px ;
+}
+
+.title{
+    padding-top: 20px;
 }

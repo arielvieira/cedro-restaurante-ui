@@ -16,7 +16,8 @@ import {
   MatRadioModule,
   MatFormField,
   MatIconModule,
-  MatButtonModule
+  MatButtonModule,
+  MatToolbarModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -59,6 +60,7 @@ import { FormPratoComponent } from './pratos/form-prato/form-prato.component';
     MatButtonModule,
     MatTableModule,
     MatGridListModule,
+    MatToolbarModule
   ],
   providers: [RestaurantesService, PratosService],
   bootstrap: [AppComponent]
