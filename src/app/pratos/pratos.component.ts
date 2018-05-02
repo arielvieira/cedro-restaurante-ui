@@ -11,7 +11,7 @@ import { Prato } from './prato.model';
 })
 export class PratosComponent implements OnInit {
   pratos: Prato[];
-
+  columnsToDisplay = ['edit', 'delete', 'restaurante', 'prato', 'preco'];
   constructor(private pratosService: PratosService) { }
 
   ngOnInit() {

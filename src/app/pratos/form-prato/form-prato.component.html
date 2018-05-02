@@ -1,22 +1,32 @@
-<h2>{{pageTitle}}</h2>
+<div class="pratos">
+  <h2>{{pageTitle}}</h2>
 
-<form (ngSubmit)="saveData()" [formGroup]="form">
-  <label for="restaurante">Restaurante:</label>
-  <select id="restaurante" formControlName="restaurante" [(ngModel)]="prato.restaurante">
-    <option [value]="prato.restaurante" disabled>Escolha um Restaurante</option>
-    <option *ngFor="let restaurante of restaurantes" [ngValue]="restaurante">
-      {{restaurante.nome}}
-    </option>
-  </select>
+  <form (ngSubmit)="saveData()" [formGroup]="form" class="form">
 
-  <label for="nome">Prato</label>
-  <input type="text" formControlName="nome" id="nome" [(ngModel)]="prato.nome">
+    <mat-form-field class="form-fields">
+      <mat-select placeholder="Restaurante" formControlName="restaurante" [(ngModel)]="prato.restaurante" name="food">
+        <mat-option *ngFor="let restaurante of restaurantes" [value]="restaurante">
+          {{restaurante.nome}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <label for="preco">Preço(R$)</label>
-  <input type="number" formControlName="preco" id="preco" [(ngModel)]="prato.preco">
+    <mat-form-field class="form-fields">
+      <input matInput placeholder="Prato" formControlName="nome" [(ngModel)]="prato.nome">
+    </mat-form-field>
 
-  <button type="button">
-    <a (click)="navigateBackToPratos()">Cancelar</a>
-  </button>
-  <input type="submit" value="Salvar">
-</form>
+    <mat-form-field>
+      <input matInput placeholder="Preço(R$)" type="number" formControlName="preco" [(ngModel)]="prato.preco">
+    </mat-form-field>
+
+    <div>
+      <button type="button" mat-raised-button color="warn" (click)="navigateBackToPratos()">
+        <mat-icon>undo</mat-icon> Cancelar
+      </button>
+
+      <button mat-raised-button color="primary">
+        <mat-icon>save</mat-icon> Salvar
+      </button>
+    </div>
+  </form>
+</div>

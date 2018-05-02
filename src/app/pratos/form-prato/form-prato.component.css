@@ -1,0 +1,13 @@
+.form {
+    min-width: 150px;
+    max-width: 600px;
+    width: 100%;
+}
+
+.form-fields {
+    width: 100%;
+}
+
+.pratos{
+    padding: 10px 0 30px 20px ;
+}

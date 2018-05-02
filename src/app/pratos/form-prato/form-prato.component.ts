@@ -19,13 +19,14 @@ export class FormPratoComponent implements OnInit {
   selectedRestaurante;
   pageTitle: string;
   form: FormGroup;
+  options: FormGroup;
 
   constructor(
     private pratosService: PratosService,
     private restaurantesService: RestaurantesService,
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -58,7 +59,6 @@ export class FormPratoComponent implements OnInit {
   }
 
   saveData() {
-    console.log(this.form);
     if (this.form.invalid) {
       return console.log('invalid');
     }

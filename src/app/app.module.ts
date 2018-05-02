@@ -1,7 +1,23 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+
+import {
+  MatSelectModule,
+  MatOptionModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatProgressBarModule,
+  MatTableModule,
+  MatGridListModule,
+  MatCheckboxModule,
+  MatRadioModule,
+  MatFormField,
+  MatIconModule,
+  MatButtonModule
+} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -26,14 +42,23 @@ import { FormPratoComponent } from './pratos/form-prato/form-prato.component';
     RestaurantesComponent,
     PratosComponent,
     FormRestauranteComponent,
-    FormPratoComponent
+    FormPratoComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTableModule,
+    MatGridListModule,
   ],
   providers: [RestaurantesService, PratosService],
   bootstrap: [AppComponent]
