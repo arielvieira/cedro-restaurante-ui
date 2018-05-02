@@ -3,55 +3,20 @@
 
   <form (ngSubmit)="searchRestaurante()" class="form">
 
-    <!-- <mat-form-field class="form-fields">
-      <mat-select placeholder="Restaurante" formControlName="restaurante" [(ngModel)]="prato.restaurante" name="food">
-        <mat-option *ngFor="let restaurante of restaurantes" [value]="restaurante">
-          {{restaurante.nome}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field> -->
-
-    <!-- <mat-form-field class="form-fields">
-      <input matInput placeholder="Prato" formControlName="nome" [(ngModel)]="prato.nome">
-    </mat-form-field> -->
-
     <mat-form-field class="form-fields">
-      <!-- <input matInput placeholder="Preço(R$)" type="text" [(ngModel)]="nome"> -->
       <input matInput placeholder="Nome" type="text" name="nome" id="nome" [(ngModel)]="nome">
     </mat-form-field>
 
-    <!-- <label for="nome">Nome:</label>
-    <input type="text" name="nome" id="nome" [(ngModel)]="nome" > -->
     <button mat-raised-button color="basic" class="button">
       <mat-icon>search</mat-icon> Pesquisar
     </button>
-    <!-- <input type="submit" value="Pesquisar"> -->
-    <!-- <button>
-      <a routerLink="/restaurantes/create">Cadastrar novo Restaurante</a>
-    </button> -->
+
     <a routerLink="/restaurantes/create" class="button">
       <button mat-raised-button color="primary">
         <mat-icon>add</mat-icon>Cadastrar novo Restaurante
       </button>
     </a>
   </form>
-
-  <!-- <table>
-    <tr>
-      <th></th>
-      <th></th>
-      <th>Restaurantes</th>
-    </tr>
-    <tr *ngFor="let restaurante of restaurantes">
-      <td>
-        <a (click)="removeRestaurante(restaurante.id)">Deletar</a>
-      </td>
-      <td>
-        <a [routerLink]="['/restaurantes/edit', restaurante.id]">Editar</a>
-      </td>
-      <td>{{restaurante.nome}}</td>
-    </tr>
-  </table> -->
 
   <mat-table [dataSource]="restaurantes" class="table">
 
